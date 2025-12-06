@@ -76,7 +76,7 @@ class CacheManagerTest extends WP_TestCase
      */
     public function test_set_stores_value_with_ttl(): void
     {
-        $settings = $this->create_settings(content_ttl: 600);
+        $settings = $this->create_settings(3600, 600);
 
         Functions\expect('set_transient')
             ->once()
@@ -195,7 +195,7 @@ class CacheManagerTest extends WP_TestCase
      */
     public function test_get_llms_txt_ttl_returns_setting(): void
     {
-        $settings = $this->create_settings(llms_ttl: 7200);
+        $settings = $this->create_settings(7200);
         $cache = new Cache_Manager($settings);
 
         $this->assertEquals(7200, $cache->get_llms_txt_ttl());
@@ -206,7 +206,7 @@ class CacheManagerTest extends WP_TestCase
      */
     public function test_get_content_ttl_returns_setting(): void
     {
-        $settings = $this->create_settings(content_ttl: 300);
+        $settings = $this->create_settings(3600, 300);
         $cache = new Cache_Manager($settings);
 
         $this->assertEquals(300, $cache->get_content_ttl());

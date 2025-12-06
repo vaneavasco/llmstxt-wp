@@ -63,7 +63,7 @@ class RateLimiterTest extends WP_TestCase
      */
     public function test_allows_request_when_disabled(): void
     {
-        $settings = $this->create_settings(enabled: false);
+        $settings = $this->create_settings(false);
         $limiter = new Rate_Limiter($settings);
 
         $this->assertFalse($limiter->is_rate_limited());
@@ -94,7 +94,7 @@ class RateLimiterTest extends WP_TestCase
      */
     public function test_blocks_when_limit_exceeded_with_object_cache(): void
     {
-        $settings = $this->create_settings(max_requests: 5);
+        $settings = $this->create_settings(true, 5);
 
         Functions\expect('wp_using_ext_object_cache')
             ->once()
@@ -121,7 +121,7 @@ class RateLimiterTest extends WP_TestCase
      */
     public function test_allows_subsequent_requests_within_limit(): void
     {
-        $settings = $this->create_settings(max_requests: 10);
+        $settings = $this->create_settings(true, 10);
 
         Functions\expect('wp_using_ext_object_cache')
             ->once()
@@ -145,7 +145,7 @@ class RateLimiterTest extends WP_TestCase
      */
     public function test_get_remaining_returns_unlimited_when_disabled(): void
     {
-        $settings = $this->create_settings(enabled: false);
+        $settings = $this->create_settings(false);
         $limiter = new Rate_Limiter($settings);
 
         $this->assertEquals(-1, $limiter->get_remaining());
@@ -156,7 +156,7 @@ class RateLimiterTest extends WP_TestCase
      */
     public function test_get_remaining_calculates_correctly(): void
     {
-        $settings = $this->create_settings(max_requests: 100);
+        $settings = $this->create_settings(true, 100);
 
         Functions\expect('get_transient')
             ->once()
@@ -172,7 +172,7 @@ class RateLimiterTest extends WP_TestCase
      */
     public function test_get_window_returns_setting(): void
     {
-        $settings = $this->create_settings(window: 120);
+        $settings = $this->create_settings(true, 60, 120);
         $limiter = new Rate_Limiter($settings);
 
         $this->assertEquals(120, $limiter->get_window());
@@ -183,7 +183,7 @@ class RateLimiterTest extends WP_TestCase
      */
     public function test_get_limit_returns_setting(): void
     {
-        $settings = $this->create_settings(max_requests: 100);
+        $settings = $this->create_settings(true, 100);
         $limiter = new Rate_Limiter($settings);
 
         $this->assertEquals(100, $limiter->get_limit());
@@ -210,7 +210,7 @@ class RateLimiterTest extends WP_TestCase
      */
     public function test_get_headers_returns_correct_structure(): void
     {
-        $settings = $this->create_settings(max_requests: 100, window: 60);
+        $settings = $this->create_settings(true, 100, 60);
 
         Functions\expect('get_transient')
             ->once()

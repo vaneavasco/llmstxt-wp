@@ -390,11 +390,14 @@ class ContentFetcherIntegrationTest extends WP_Integration_TestCase
 
         Functions\when('wp_count_posts')
             ->alias(function ($type) {
-                return match ($type) {
-                    'post' => (object) ['publish' => 25, 'draft' => 5],
-                    'page' => (object) ['publish' => 10, 'draft' => 2],
-                    default => (object) ['publish' => 0],
-                };
+                switch ($type) {
+                    case 'post':
+                        return (object) ['publish' => 25, 'draft' => 5];
+                    case 'page':
+                        return (object) ['publish' => 10, 'draft' => 2];
+                    default:
+                        return (object) ['publish' => 0];
+                }
             });
 
         $counts = $this->fetcher->get_content_counts();
@@ -413,11 +416,14 @@ class ContentFetcherIntegrationTest extends WP_Integration_TestCase
 
         Functions\when('wp_count_posts')
             ->alias(function ($type) {
-                return match ($type) {
-                    'post' => (object) ['publish' => 50],
-                    'page' => (object) ['publish' => 30],
-                    default => (object) ['publish' => 0],
-                };
+                switch ($type) {
+                    case 'post':
+                        return (object) ['publish' => 50];
+                    case 'page':
+                        return (object) ['publish' => 30];
+                    default:
+                        return (object) ['publish' => 0];
+                }
             });
 
         $total = $this->fetcher->get_total_count();

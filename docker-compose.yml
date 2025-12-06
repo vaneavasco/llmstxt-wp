@@ -10,6 +10,17 @@ services:
       - /app/vendor  # Preserve vendor from image
     command: composer test:unit
 
+  # PHP 7.4 tests (for compatibility testing)
+  # Usage: docker-compose run test-php74
+  test-php74:
+    build:
+      context: .
+      dockerfile: Dockerfile.php74
+    volumes:
+      - .:/app
+      - /app/vendor
+    command: composer test
+
   # Run all tests with coverage
   # Usage: docker-compose run test-coverage
   test-coverage:
