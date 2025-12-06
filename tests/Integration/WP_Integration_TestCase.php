@@ -275,12 +275,17 @@ abstract class WP_Integration_TestCase extends TestCase
                 return 'https://example.com/wp-admin/' . ltrim($path, '/');
             },
             'get_bloginfo' => function ($show) use ($self) {
-                return match ($show) {
-                    'name' => $self->mock_options['blogname'] ?? 'Test Site',
-                    'description' => $self->mock_options['blogdescription'] ?? '',
-                    'url', 'wpurl' => $self->mock_options['siteurl'] ?? 'https://example.com',
-                    default => '',
-                };
+                switch ($show) {
+                    case 'name':
+                        return $self->mock_options['blogname'] ?? 'Test Site';
+                    case 'description':
+                        return $self->mock_options['blogdescription'] ?? '';
+                    case 'url':
+                    case 'wpurl':
+                        return $self->mock_options['siteurl'] ?? 'https://example.com';
+                    default:
+                        return '';
+                }
             },
             'get_option' => function ($option, $default = false) use ($self) {
                 return $self->mock_options[$option] ?? $default;
@@ -298,11 +303,14 @@ abstract class WP_Integration_TestCase extends TestCase
     {
         Functions\stubs([
             'get_the_author_meta' => function ($field, $user_id = 0) {
-                return match ($field) {
-                    'display_name' => 'Test Author',
-                    'user_email' => 'author@test.com',
-                    default => '',
-                };
+                switch ($field) {
+                    case 'display_name':
+                        return 'Test Author';
+                    case 'user_email':
+                        return 'author@test.com';
+                    default:
+                        return '';
+                }
             },
             'is_user_logged_in' => function () {
                 return false;
