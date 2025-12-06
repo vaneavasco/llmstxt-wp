@@ -180,7 +180,7 @@ final class Cache_Manager {
 			}
 			// Otherwise offset stays at 0 since rows are deleted.
 
-		} while ( $batch_count === self::BATCH_SIZE );
+		} while ( self::BATCH_SIZE === $batch_count );
 
 		/**
 		 * Fires after all caches are cleared.
@@ -265,7 +265,7 @@ final class Cache_Manager {
 	/**
 	 * Log cache invalidation failures.
 	 *
-	 * @param int             $post_id  Post ID that triggered invalidation.
+	 * @param int                $post_id  Post ID that triggered invalidation.
 	 * @param array<int, string> $failures Array of cache keys that failed to invalidate.
 	 * @return void
 	 */

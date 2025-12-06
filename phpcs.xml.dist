@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<ruleset name="LLMs.txt WordPress Plugin">
+    <description>PHPCS configuration for LLMs.txt WordPress plugin</description>
+
+    <!-- Scan these files -->
+    <file>includes</file>
+    <file>llmstxt-wp.php</file>
+    <file>uninstall.php</file>
+
+    <!-- Exclude vendor and tests -->
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>tests/*</exclude-pattern>
+    <exclude-pattern>node_modules/*</exclude-pattern>
+
+    <!-- Use WordPress Coding Standards -->
+    <rule ref="WordPress">
+        <!-- Allow short array syntax -->
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        <exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+        <!-- Allow PSR-4 file naming for classes -->
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+        <!-- Allow precision alignment for multi-line arrays -->
+        <exclude name="Universal.WhiteSpace.PrecisionAlignment"/>
+        <!-- Allow reserved keywords as parameter names ($default, $class) -->
+        <exclude name="Universal.NamingConventions.NoReservedKeywordParameterNames"/>
+    </rule>
+
+    <!-- Allow using WordPress core filters like 'the_content' -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound">
+        <exclude-pattern>includes/content/class-markdown-generator.php</exclude-pattern>
+    </rule>
+
+    <!-- Check for PHP cross-version compatibility -->
+    <rule ref="PHPCompatibilityWP"/>
+
+    <!-- PHP 7.4+ -->
+    <config name="testVersion" value="7.4-"/>
+
+    <!-- WordPress version -->
+    <config name="minimum_supported_wp_version" value="5.8"/>
+
+    <!-- Prefixes for hooks, options, etc. -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="aico"/>
+                <element value="llmstxt"/>
+                <element value="AICO"/>
+                <element value="LLMSTXT"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Text domain -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="llmstxt-wp"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Show colors and progress -->
+    <arg name="colors"/>
+    <arg value="sp"/>
+</ruleset>

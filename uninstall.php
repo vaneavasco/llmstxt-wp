@@ -23,7 +23,7 @@ global $wpdb;
 
 // Find transient keys only (not timeout entries, as delete_transient handles both).
 // phpcs:disable WordPress.DB.DirectDatabaseQuery
-$transient_keys = $wpdb->get_col(
+$aico_transient_keys = $wpdb->get_col(
 	$wpdb->prepare(
 		"SELECT option_name FROM {$wpdb->options}
 		WHERE option_name LIKE %s
@@ -33,10 +33,10 @@ $transient_keys = $wpdb->get_col(
 	)
 );
 
-foreach ( $transient_keys as $key ) {
+foreach ( $aico_transient_keys as $aico_key ) {
 	// Remove the '_transient_' prefix to get the actual key.
-	$transient_name = substr( $key, 11 ); // strlen( '_transient_' ) = 11.
-	delete_transient( $transient_name );
+	$aico_transient_name = substr( $aico_key, 11 ); // strlen( '_transient_' ) = 11.
+	delete_transient( $aico_transient_name );
 }
 // phpcs:enable
 

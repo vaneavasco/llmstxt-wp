@@ -36,8 +36,8 @@
         "test:unit": "phpunit --testsuite Unit",
         "test:integration": "phpunit --testsuite Integration",
         "test:coverage": "phpunit --coverage-html coverage",
-        "lint": "phpcs --standard=WordPress includes/",
-        "lint:fix": "phpcbf --standard=WordPress includes/"
+        "lint": "phpcs",
+        "lint:fix": "phpcbf"
     },
     "config": {
         "allow-plugins": {

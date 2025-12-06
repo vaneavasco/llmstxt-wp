@@ -318,8 +318,8 @@ final class Rate_Limiter {
 	 *
 	 * Supports both individual IPs and CIDR notation.
 	 *
-	 * @param string               $ip              IP address to check.
-	 * @param array<int, string>   $trusted_proxies List of trusted proxy IPs/CIDRs.
+	 * @param string             $ip              IP address to check.
+	 * @param array<int, string> $trusted_proxies List of trusted proxy IPs/CIDRs.
 	 * @return bool True if IP is trusted.
 	 */
 	private function is_trusted_proxy( string $ip, array $trusted_proxies ): bool {
@@ -351,7 +351,7 @@ final class Rate_Limiter {
 	 */
 	private function ip_in_cidr( string $ip, string $cidr ): bool {
 		list( $subnet, $bits ) = explode( '/', $cidr );
-		$bits = (int) $bits;
+		$bits                  = (int) $bits;
 
 		// Check if IP and subnet are same version.
 		$ip_is_v6     = filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 );

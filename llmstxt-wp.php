@@ -76,7 +76,7 @@ spl_autoload_register(
 		$relative_class = substr( $class, $len );
 
 		// Convert namespace separators and underscores to directory separators.
-		// LLMSTXT_WP\Core\Settings_Manager -> core/class-settings-manager.php
+		// LLMSTXT_WP\Core\Settings_Manager -> core/class-settings-manager.php.
 		$parts      = explode( '\\', $relative_class );
 		$class_name = array_pop( $parts );
 

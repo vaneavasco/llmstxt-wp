@@ -421,7 +421,7 @@ final class Markdown_Generator {
 		}
 
 		// Build markdown table.
-		$markdown = "\n";
+		$markdown  = "\n";
 		$col_count = 0;
 
 		foreach ( $rows as $index => $row ) {
@@ -501,7 +501,7 @@ final class Markdown_Generator {
 				$dd_count = count( $dd_matches[1] );
 
 				for ( $i = 0; $i < $dt_count; $i++ ) {
-					$term = wp_strip_all_tags( $dt_matches[1][ $i ] );
+					$term    = wp_strip_all_tags( $dt_matches[1][ $i ] );
 					$result .= "**{$term}**\n";
 
 					if ( isset( $dd_matches[1][ $i ] ) ) {

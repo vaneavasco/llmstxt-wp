@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: Get version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Build release ZIP
+        run: |
+          mkdir -p dist
+          zip -r dist/llmstxt-wp-${{ steps.version.outputs.VERSION }}.zip . \
+            -x "*.git*" \
+            -x "tests/*" \
+            -x "vendor/*" \
+            -x ".github/*" \
+            -x "scripts/*" \
+            -x "composer.*" \
+            -x "phpunit.xml*" \
+            -x "phpcs.xml*" \
+            -x "Dockerfile" \
+            -x "docker-compose.yml" \
+            -x ".env*" \
+            -x "coverage/*" \
+            -x "*.md" \
+            -x "junit.xml"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/llmstxt-wp-${{ steps.version.outputs.VERSION }}.zip
+          generate_release_notes: true
+          draft: false
+          prerelease: ${{ contains(github.ref, 'beta') || contains(github.ref, 'alpha') }}

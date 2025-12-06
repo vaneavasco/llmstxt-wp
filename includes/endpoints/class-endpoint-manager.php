@@ -513,8 +513,15 @@ final class Endpoint_Manager {
 			'sup'        => [],
 			'table'      => [],
 			'tbody'      => [],
-			'td'         => [ 'colspan' => true, 'rowspan' => true ],
-			'th'         => [ 'colspan' => true, 'rowspan' => true, 'scope' => true ],
+			'td'         => [
+				'colspan' => true,
+				'rowspan' => true,
+			],
+			'th'         => [
+				'colspan' => true,
+				'rowspan' => true,
+				'scope'   => true,
+			],
 			'thead'      => [],
 			'tr'         => [],
 			'ul'         => [],

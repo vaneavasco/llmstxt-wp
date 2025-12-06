@@ -246,7 +246,7 @@ final class Settings_Manager implements Settings_Interface {
 			}
 
 			// Validate the bits part.
-			$bits = (int) $bits;
+			$bits    = (int) $bits;
 			$is_ipv6 = filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 );
 
 			if ( $is_ipv6 ) {

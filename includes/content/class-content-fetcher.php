@@ -197,7 +197,7 @@ final class Content_Fetcher {
 		$counts     = [];
 
 		foreach ( $post_types as $post_type ) {
-			$count_obj              = wp_count_posts( $post_type );
+			$count_obj            = wp_count_posts( $post_type );
 			$counts[ $post_type ] = isset( $count_obj->publish ) ? (int) $count_obj->publish : 0;
 		}
 
