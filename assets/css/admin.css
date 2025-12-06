@@ -1,0 +1,105 @@
+/**
+ * LLMs.txt for WordPress - Admin Styles
+ *
+ * @package LLMSTXT_WP
+ */
+
+/* Settings page wrapper */
+.aico-settings-wrap {
+	max-width: 800px;
+}
+
+/* Info box styling */
+.aico-info-box {
+	background: #f0f6fc;
+	border-left: 4px solid #2271b1;
+	padding: 12px 16px;
+	margin: 16px 0;
+}
+
+.aico-info-box h3 {
+	margin-top: 0;
+	margin-bottom: 8px;
+}
+
+.aico-info-box p {
+	margin-bottom: 0;
+}
+
+/* External link styling */
+.aico-external-link .dashicons {
+	font-size: 14px;
+	width: 14px;
+	height: 14px;
+	vertical-align: middle;
+	margin-left: 2px;
+}
+
+/* Section styling */
+.aico-section {
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px solid #c3c4c7;
+}
+
+.aico-section h2 {
+	margin-top: 0;
+}
+
+/* Cache form */
+.aico-cache-form {
+	margin-top: 10px;
+}
+
+/* Bot patterns display */
+.aico-bot-patterns {
+	background: #f9f9f9;
+	padding: 10px;
+	border: 1px solid #ddd;
+	max-height: 200px;
+	overflow-y: auto;
+	margin-top: 10px;
+}
+
+.aico-bot-patterns code {
+	font-size: 12px;
+	word-break: break-all;
+	background: transparent;
+}
+
+/* Post types fieldset */
+.aico-post-types {
+	margin: 0;
+	padding: 0;
+}
+
+.aico-post-type-label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.aico-post-type-label code {
+	font-size: 12px;
+	color: #666;
+}
+
+/* Settings page improvements */
+.aico-settings-wrap .form-table th {
+	width: 220px;
+}
+
+/* Number inputs */
+.aico-settings-wrap input[type="number"].small-text {
+	width: 80px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+	.aico-settings-wrap .form-table th {
+		width: auto;
+	}
+
+	.aico-info-box {
+		margin: 10px 0;
+	}
+}

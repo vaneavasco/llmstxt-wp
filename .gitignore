@@ -1,0 +1,30 @@
+# Composer
+/vendor/
+composer.lock
+
+# PHPUnit
+.phpunit.cache/
+.phpunit.result.cache
+/coverage/
+
+# Docker
+.env
+
+# IDE and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build artifacts
+*.log
+*.cache
+
+# WordPress local development
+/wordpress/
+/wp-content/
+
+# Node (if used for assets)
+node_modules/

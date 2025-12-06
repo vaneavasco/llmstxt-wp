@@ -1,0 +1,198 @@
+# Copyright (C) 2025 vaneavasco
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: LLMs.txt for WordPress 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/vaneavasco/llmstxt-wp/issues\n"
+"POT-Creation-Date: 2025-01-01T00:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: WP-CLI\n"
+"X-Domain: llmstxt-wp\n"
+
+#: llmstxt-wp.php:42
+msgid "LLMs.txt for WordPress requires PHP 7.4 or higher. Please upgrade your PHP version."
+msgstr ""
+
+#: llmstxt-wp.php:188
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:66
+#: includes/admin/class-admin-page.php:67
+msgid "LLMs.txt"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:83
+msgid "General Settings"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:90
+msgid "Enable Plugin"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:91
+msgid "Enable or disable all AI content optimization features."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:97
+msgid "Enable /llms.txt"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:98
+msgid "Serve an llms.txt file listing all your published content."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:104
+msgid "Enable AI Endpoints"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:105
+msgid "Enable /ai/content/* endpoints for individual posts."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:111
+msgid "Redirect AI Bots"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:112
+msgid "Automatically redirect AI crawlers to optimized markdown endpoints."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:119
+msgid "Content Settings"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:126
+msgid "Post Types"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:134
+msgid "Site Description"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:140
+msgid "Description shown in llms.txt header. Leave empty to use site tagline."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:146
+msgid "Contact Email"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:153
+msgid "Contact email shown in llms.txt. Leave empty to use admin email."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:160
+msgid "Cache Settings"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:167
+msgid "llms.txt Cache TTL"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:175
+msgid "Cache duration in seconds for llms.txt (default: 3600 = 1 hour)."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:181
+msgid "Content Cache TTL"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:189
+msgid "Cache duration in seconds for individual posts (default: 600 = 10 minutes)."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:196
+msgid "Advanced Settings"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:203
+msgid "Enable Rate Limiting"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:204
+msgid "Limit requests per IP to prevent abuse."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:210
+msgid "Rate Limit"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:218
+msgid "Maximum requests per minute per IP (default: 60)."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:224
+msgid "Noindex AI Content"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:225
+msgid "Add X-Robots-Tag: noindex to prevent search engine indexing of AI endpoints."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:231
+msgid "Custom Bot Patterns"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:237
+msgid "Additional bot User-Agent patterns to detect (one per line)."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:256
+msgid "Cache cleared successfully."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:269
+msgid "Quick Links"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:288
+msgid "Cache Management"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:290
+msgid "Clear all cached content. This will regenerate llms.txt and individual post caches on next request."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:297
+msgid "Clear All Caches"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:307
+msgid "Detected AI Bots"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:309
+msgid "The following AI bots are automatically detected:"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:324
+msgid "Unauthorized"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:484
+msgid "Select which post types to include in llms.txt and AI content endpoints."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:493
+msgid "Configure the main features of LLMs.txt."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:500
+msgid "Configure which content to include and how it appears in AI-optimized output."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:507
+msgid "Configure caching behavior for AI content endpoints. Higher values reduce server load but delay content updates."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:514
+msgid "Advanced configuration options for security and custom bot detection."
+msgstr ""
